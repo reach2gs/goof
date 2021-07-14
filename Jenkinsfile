@@ -6,7 +6,20 @@ pipeline {
                 echo 'Running Build Automation'
                   }
         }
-        
+         stage('Snyk SCA scan') {
+      		tools {
+       			 snyk 'Snyk Test'
+      			}	
+      	      steps {
+			snykSecurity(
+			  organisation: 'reach2gs',
+			  severity: 'high',
+			  snykInstallation: 'Snyk Test',
+			  snykTokenId: 'snyk_token',
+			  failOnIssues: 'false'
+		)		
+	      }
+	    }
 		stage('Build Docker Image') {
             when {
                 branch 'master'
