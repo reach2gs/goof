@@ -31,10 +31,7 @@ pipeline {
             }
         }
         stage('Snyk Container Image Scan') {
-      tools {
-        snyk 'Snyk Test'
-      }	
-			steps {
+      	    steps {
                 script {
                     app = docker.scan("reach2gaurav/snyk-test")
                         }
