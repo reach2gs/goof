@@ -27,16 +27,11 @@ pipeline {
             steps {
                 script {
                     app = docker.build("reach2gaurav/snyk-test")
+		    app = docker.scan("reach2gaurav/snyk-test")
                         }
             }
         }
-        stage('Snyk Container Image Scan') {
-      	    steps {
-                script {
-                    app = docker.scan("reach2gaurav/snyk-test")
-                        }
-            }		
-    }
+        
         stage('DeployToProduction') {
             when {
                 branch 'master'
