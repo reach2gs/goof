@@ -10,7 +10,7 @@ pipeline {
           organisation: 'reach2gs',
           severity: 'high',
           snykInstallation: 'Snyk Test',
-          snykTokenId: 'snyk token',
+          snykTokenId: 'snyk_token',
           targetFile: 'requirements.txt',
           failOnIssues: 'true'
         )		
