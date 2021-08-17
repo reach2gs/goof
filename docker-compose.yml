@@ -2,7 +2,7 @@ version: "2"
 services:
   goof:
     build: .
-    container_name: goof
+    container_name: gaurav_appsec
     environment:
       - DOCKER=1
     ports:
