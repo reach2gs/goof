@@ -37,8 +37,8 @@ pipeline {
         //stage('Container Image Test') {
           //  steps {
             //    script {
-                    echo 'Running Snyk Container tests'
-                    snykSecurity(snykTokenId: 'snyk_token', snykInstallation: 'Snyk Test', failOnIssues: false, monitorProjectOnBuild: false)
+                //    echo 'Running Snyk Container tests'
+                  //  snykSecurity(snykTokenId: 'snyk_token', snykInstallation: 'Snyk Test', failOnIssues: false, monitorProjectOnBuild: false)
 
 		//}
             //}
