@@ -12,11 +12,13 @@ pipeline {
       			}	
       	      steps {
 			snykSecurity(
-			  organisation: 'reach2gs',
-			  severity: 'high',
-			  snykInstallation: 'Snyk Test',
-			  snykTokenId: 'snyk_token',
-			  failOnIssues: 'false'
+			  failOnIssues: false, 
+			  monitorProjectOnBuild: false, 
+                          organisation: 'secpartners-training', 
+			  projectName: 'gaurav_appsec_training', 
+			  severity: 'critical', 
+			  snykInstallation: 'Snyk Test', 
+			  snykTokenId: 'Snyk-Token-secpartners-training'
 		)		
 	      }
 	    }
@@ -32,15 +34,15 @@ pipeline {
         }
         
 	    // CONTAINER IMAGE TESTING
-        stage('Container Image Test') {
-            steps {
-                script {
+        //stage('Container Image Test') {
+          //  steps {
+            //    script {
                     echo 'Running Snyk Container tests'
-                    snykSecurity(snykTokenId: 'snyk_token', snykInstallation: 'Snyk Test', failOnIssues: false, monitorProjectOnBuild: true)
+                    snykSecurity(snykTokenId: 'snyk_token', snykInstallation: 'Snyk Test', failOnIssues: false, monitorProjectOnBuild: false)
 
-		}
-            }
-        }
+		//}
+            //}
+        //}
 	    
         stage('DeployToProduction') {
             when {
